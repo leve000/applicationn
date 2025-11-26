@@ -1,12 +1,35 @@
-﻿<Window x:Class="applicationn.MainWindow"
+﻿<Window x:Class="WpfApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:applicationn"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Admin App" Height="500" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,0,0,10">
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <Label Content="Version:" Width="80"/>
+                <TextBox x:Name="txtVersion" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <Label Content="UserName:" Width="80"/>
+                <TextBox x:Name="txtUserName" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <Label Content="Password:" Width="80"/>
+                <PasswordBox x:Name="txtPassword" Width="200"/>
+            </StackPanel>
+
+            <Button Content="Add Record" Width="120" Margin="0,10,0,0" Click="AddRecord_Click"/>
+        </StackPanel>
+
         
+        <DataGrid x:Name="dataGrid" Grid.Row="1" AutoGenerateColumns="True" IsReadOnly="True"
+                  MouseDoubleClick="DataGrid_MouseDoubleClick"/>
     </Grid>
 </Window>
